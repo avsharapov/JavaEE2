@@ -10,11 +10,11 @@
     </context-param>
 
 
-    <!--    <listener>
+        <listener>
             <listener-class>com.inno.servlet.AppContextListener</listener-class>
         </listener>
 
-        <servlet>
+<!--        <servlet>
             <servlet-name>Mobiles</servlet-name>
             <servlet-class>com.inno.servlet.AllMobilesServlet</servlet-class>
             <load-on-startup>1</load-on-startup>
@@ -61,17 +61,33 @@
         <location>/error</location>
     </error-page>
 
-<!--
     <filter>
         <filter-name>logFilter</filter-name>
         <filter-class>com.inno.servlet.LogFilter</filter-class>
+        <init-param>
+            <param-name>Order</param-name>
+            <param-value>One</param-value>
+        </init-param>
     </filter>
 
     <filter-mapping>
         <filter-name>logFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
--->
+
+    <filter>
+        <filter-name>logFilter1</filter-name>
+        <filter-class>com.inno.servlet.LogFilter</filter-class>
+        <init-param>
+            <param-name>Order</param-name>
+            <param-value>Two</param-value>
+        </init-param>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>logFilter1</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
 
     <jsp-config>
         <taglib>

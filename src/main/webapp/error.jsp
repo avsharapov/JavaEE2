@@ -19,7 +19,7 @@
                 <li>Exception Message: ${throwableMessage} </li>
             </ul>
             <br><br>
-            <a href="/mobiles/">Main page</a>
+            <a href="/">Main page</a>
         </c:if>
     </jsp:body>
 </myTags:template>

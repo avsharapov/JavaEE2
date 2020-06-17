@@ -23,6 +23,7 @@ public class ShowMobileServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        // localhost:8081/showmobile?id=1
         String mobileId = req.getParameter("id");
         if (mobileId == null) {
             throw new ServletException("Missing parameter id");
@@ -30,10 +31,16 @@ public class ShowMobileServlet extends HttpServlet {
         Mobile mobile = mobileDao.getMobileById(Integer.valueOf(mobileId));
         if (mobile == null) {
             resp.setStatus(404);
-            req.getRequestDispatcher("/notfound.jsp").forward(req, resp);
+            req.setAttribute("PageTitle", "Mobiles");
+            req.setAttribute("PageBody", "notfound.jsp");
+            req.getRequestDispatcher("/layout.jsp")
+                    .forward(req, resp);
             return;
         }
         req.setAttribute("mobile", mobile);
-        req.getRequestDispatcher("/showmobile.jsp").forward(req, resp);
+        req.setAttribute("PageTitle", "Mobiles");
+        req.setAttribute("PageBody", "showmobile.jsp");
+        req.getRequestDispatcher("/layout.jsp")
+                .forward(req, resp);
     }
 }

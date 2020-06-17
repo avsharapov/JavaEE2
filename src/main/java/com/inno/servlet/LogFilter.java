@@ -13,13 +13,14 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
-@WebFilter("/*")
+//@WebFilter("/*")
 public class LogFilter implements Filter {
     private Logger logger = LoggerFactory.getLogger(LogFilter.class);
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-        logger.info("init logFilter");
+        final String order = filterConfig.getInitParameter("Order");
+        logger.info("init logFilter " + order);
     }
 
     @Override
